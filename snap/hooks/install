@@ -1,0 +1,27 @@
+#!/bin/sh -e
+
+cat << EOF > $SNAP_DATA/frps.ini
+# frps.ini
+[common]
+bind_addr = 0.0.0.0
+bind_port = 7000
+bind_udp_port = 7001
+kcp_bind_port = 7000
+dashboard_addr = 0.0.0.0
+dashboard_port = 7500
+dashboard_user = admin
+dashboard_pwd = Admin12345
+token = frpsecret
+max_ports_per_client = 100
+tcp_mux = true
+EOF
+
+cat << EOF > $SNAP_DATA/frpc.ini
+# frpc.ini
+[common]
+server_addr = 127.0.0.1
+server_port = 7000
+protocol = kcp
+user = local
+token = frpsecret
+EOF

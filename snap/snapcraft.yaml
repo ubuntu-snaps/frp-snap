@@ -1,0 +1,29 @@
+name: fast-reverse-proxy
+version: 0.48.0
+summary: fast reverse proxy
+description: fast reverse proxy
+
+grade: devel
+confinement: devmode
+base: core20
+
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+  - build-on: armhf
+
+apps:
+  frps:
+    command: bin/frps -c $SNAP_DATA/frps.ini
+    daemon: simple
+    plugs: [network, network-bind]
+  frpc:
+    command: bin/frpc -c $SNAP_DATA/frpc.ini
+    daemon: simple
+    plugs: [network]
+
+parts:
+  frp:
+    plugin: go
+    source: https://github.com/fatedier/frp.git
+    source-tag: v0.48.0
