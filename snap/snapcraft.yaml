@@ -3,9 +3,9 @@ version: 0.48.0
 summary: fast reverse proxy
 description: fast reverse proxy
 
-grade: devel
-confinement: devmode
-base: core20
+base: core22
+confinement: strict
+grade: stable
 
 architectures:
   - build-on: amd64
@@ -27,3 +27,7 @@ parts:
     plugin: go
     source: https://github.com/fatedier/frp.git
     source-tag: v0.48.0
+    build-environment:
+      - GOPROXY: https://proxy.golang.com.cn,direct
+    build-snaps:
+      - go
