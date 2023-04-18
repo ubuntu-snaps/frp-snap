@@ -20,7 +20,7 @@ apps:
   frpc:
     command: bin/frpc -c $SNAP_DATA/frpc.ini
     daemon: simple
-    plugs: [network]
+    plugs: [network, network-bind]
 
 parts:
   frp:
