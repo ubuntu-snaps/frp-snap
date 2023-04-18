@@ -3,25 +3,42 @@
 cat << EOF > $SNAP_DATA/frps.ini
 # frps.ini
 [common]
+# basic
 bind_addr = 0.0.0.0
 bind_port = 7000
-bind_udp_port = 7001
-kcp_bind_port = 7000
+bind_udp_port = 7000
+kcp_bind_port = 7001
+quic_bind_port = 7002
+# auth
+token = frpsecret
+# management
+max_ports_per_client = 100
+# dashboard
 dashboard_addr = 0.0.0.0
 dashboard_port = 7500
 dashboard_user = admin
 dashboard_pwd = Admin12345
-token = frpsecret
-max_ports_per_client = 100
-tcp_mux = true
+# http
+vhost_http_port = 7080
+vhost_https_port = 7443
+subdomain_host = p.iotapp.site
 EOF
 
 cat << EOF > $SNAP_DATA/frpc.ini
 # frpc.ini
 [common]
 server_addr = 127.0.0.1
-server_port = 7000
+server_port = 7001
 protocol = kcp
 user = local
 token = frpsecret
+admin_addr = 0.0.0.0
+admin_port = 7400
+admin_user = admin
+admin_pwd = Admin12345
+[admin]
+type = http
+local_ip = 127.0.0.1
+local_port = 7400
+subdomain = local-admin
 EOF
