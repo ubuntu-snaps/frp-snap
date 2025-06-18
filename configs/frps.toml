@@ -13,4 +13,4 @@ token = "frpsecret"
 addr = "0.0.0.0"
 port = 7500
 user = "admin"
-passwd = "Admin#12345"
+password = "Admin#12345"
