@@ -7,10 +7,10 @@ base: core24
 confinement: strict
 grade: stable
 
-architectures:
-  - build-on: amd64
-  - build-on: arm64
-  - build-on: armhf
+platforms:
+  amd64:
+  arm64:
+  armhf:
 
 apps:
   frps:
