@@ -28,8 +28,8 @@ parts:
     plugin: go
     source: https://github.com/fatedier/frp.git
     source-tag: v0.62.1
-    build-environment:
-      - GOPROXY: https://proxy.golang.com.cn,direct
+    # build-environment:
+    #   - GOPROXY: https://proxy.golang.com.cn,direct
     build-snaps:
       - go
   configs:
