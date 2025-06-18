@@ -1,0 +1,16 @@
+bindAddr = "0.0.0.0"
+bindPort = 7000
+kcpBindPort = 7001
+quicBindPort = 7002
+vhostHTTPPort = 7080
+vhostHTTPSPort = 7443
+subDomainHost = "p.iotapp.site"
+
+[auth]
+token = "frpsecret"
+
+[webServer]
+addr = "0.0.0.0"
+port = 7500
+user = "admin"
+passwd = "Admin#12345"

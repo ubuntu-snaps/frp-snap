@@ -1,0 +1,22 @@
+serverAddr = "127.0.0.1"
+serverPort = 7001
+user = "local"
+
+[auth]
+token = "frpsecret"
+
+[transport]
+protocol = "kcp"
+
+[webServer]
+addr = "0.0.0.0"
+port = 7400
+user = "admin"
+passwd = "Admin#12345"
+
+[[proxies]]
+name = "admin"
+type = "http"
+localIP = "127.0.0.1"
+localPort = 7400
+subdomain = "local-admin"

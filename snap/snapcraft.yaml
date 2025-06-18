@@ -1,9 +1,9 @@
 name: fast-reverse-proxy
-version: 0.48.0
+version: 0.62.1
 summary: fast reverse proxy
 description: fast reverse proxy
 
-base: core22
+base: core24
 confinement: strict
 grade: stable
 
@@ -14,11 +14,11 @@ architectures:
 
 apps:
   frps:
-    command: bin/frps -c $SNAP_DATA/frps.ini
+    command: bin/frps -c $SNAP_DATA/frps.toml
     daemon: simple
     plugs: [network, network-bind]
   frpc:
-    command: bin/frpc -c $SNAP_DATA/frpc.ini
+    command: bin/frpc -c $SNAP_DATA/frpc.toml
     daemon: simple
     plugs: [network, network-bind]
 
@@ -26,8 +26,11 @@ parts:
   frp:
     plugin: go
     source: https://github.com/fatedier/frp.git
-    source-tag: v0.48.0
+    source-tag: v0.62.1
     build-environment:
       - GOPROXY: https://proxy.golang.com.cn,direct
     build-snaps:
       - go
+  etc:
+    plugin: dump
+    source: etc
