@@ -2,6 +2,7 @@ name: fast-reverse-proxy
 version: 0.62.1
 summary: fast reverse proxy
 description: fast reverse proxy
+adopt-info: configs
 
 base: core24
 confinement: strict
@@ -31,6 +32,10 @@ parts:
       - GOPROXY: https://proxy.golang.com.cn,direct
     build-snaps:
       - go
-  etc:
+  configs:
     plugin: dump
-    source: etc
+    source: configs
+    source-type: local
+    override-stage: |
+      craftctl default
+      craftctl set version="$(craftctl get version)-$(git rev-parse --short HEAD)"

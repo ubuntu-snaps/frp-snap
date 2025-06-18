@@ -1,2 +1,2 @@
 #!/bin/sh -e
-cp $SNAP/etc/*.toml $SNAP_DATA/
+cp $SNAP/*.toml $SNAP_DATA/
