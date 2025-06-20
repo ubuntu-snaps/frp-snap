@@ -1,5 +1,5 @@
 name: fast-reverse-proxy
-version: 0.52.3
+version: 0.54.0
 summary: fast reverse proxy
 description: fast reverse proxy
 adopt-info: configs
@@ -27,7 +27,7 @@ parts:
   frp:
     plugin: go
     source: https://github.com/fatedier/frp.git
-    source-tag: v0.52.3
+    source-tag: v0.54.0
     # build-environment:
     #   - GOPROXY: https://proxy.golang.com.cn,direct
     build-snaps:
